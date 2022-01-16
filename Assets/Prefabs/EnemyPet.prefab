@@ -44,17 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77cd3851b70edba4c8ad6ce59cddefb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Ball
   unitLevel: 1
   unitUIImage: {fileID: 0}
-  maxHP: 50
   currentHP: 50
-  specialCharge: 0
-  force: 10
-  intelligence: 5
-  magicResistence: 5
-  fisicalResistence: 5
-  speed: 10
+  stats: {fileID: 11400000, guid: f23f48dc325bdd641a1b95ab6d0aa58d, type: 2}
 --- !u!1 &9204507131819954842
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour
+namespace vpet
 {
-    public string unitName;
-    public int unitLevel;
-    public Sprite unitUIImage;
-    public int maxHP;
-    public int currentHP;
-    public float specialCharge;
-    public int force;
-    public int intelligence;
-    public int magicResistence;
-    public int fisicalResistence;
-    public int speed;
+    public class Unit : MonoBehaviour
+    {
+        public int level;
+        public Sprite sprite;
+        public int currentHP;
+        public int maxHP;
+        public CharStats stats;
+        public CharMove[] moves;
+    }
 }

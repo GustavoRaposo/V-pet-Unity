@@ -126,14 +126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77cd3851b70edba4c8ad6ce59cddefb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Ball
   unitLevel: 5
   unitUIImage: {fileID: 21300000, guid: 08ee30caf6eab5d41a94557f7297a74e, type: 3}
-  maxHP: 50
   currentHP: 50
-  specialCharge: 0
-  force: 10
-  intelligence: 5
-  magicResistence: 5
-  fisicalResistence: 5
-  speed: 10
+  stats: {fileID: 11400000, guid: 77990eabc4d91b743aba8c91c9bf91f3, type: 2}
+  moves:
+  - {fileID: 11400000, guid: 356de86ecbe1910418df83a34ad25b25, type: 2}
+  - {fileID: 11400000, guid: 60309616baaf4884e822b71d20c9f263, type: 2}
+  - {fileID: 11400000, guid: c97834a9a73e9cb4a94e9536ef618a89, type: 2}
