@@ -9,8 +9,18 @@ namespace vpet
         public int level;
         public Sprite sprite;
         public int currentHP;
-        public int maxHP;
+
         public CharStats stats;
         public CharMove[] moves;
+
+        public int MaxHP
+        {
+            get => stats.hp;
+        }
+
+        void Awake()
+        {
+            currentHP = MaxHP;
+        }
     }
 }

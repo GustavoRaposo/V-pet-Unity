@@ -31,18 +31,16 @@ namespace vpet
         int maxHP;
         public void setHUD(Unit unit)
         {
-            // nameText.text = unit.unitName;
-            // levelText.text = "Lvl " + unit.unitLevel;
-            // image = GetComponent<Image>();
-            // image.sprite = unit.unitUIImage;
-            // hpText.text = unit.currentHP + "/" + unit.maxHP;
-            // maxHP = unit.maxHP;
+            nameText.text = unit.stats.unitName;
+            levelText.text = "Lvl " + unit.level;
+            image.sprite = unit.sprite;
+            hpText.text = unit.currentHP + "/" + unit.MaxHP;
             // spText.text = (unit.specialCharge * 100) + "%";
         }
 
-        public void setHP(int hp)
+        public void setHP(Unit unit)
         {
-            hpText.text = hp + "/" + maxHP;
+            hpText.text = unit.currentHP + "/" + unit.MaxHP;
         }
 
         public void setSp(float sp)
