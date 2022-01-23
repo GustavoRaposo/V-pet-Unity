@@ -16,19 +16,36 @@ public class HealthHUD : MonoBehaviour
     [SerializeField] private Color colorMidHealth = Color.yellow;
     [SerializeField] private Color colorLowHealth = Color.red;
 
+    [Header("Animation")]
+    [SerializeField] private float animationTime = 1;
+    [SerializeField] private AnimationCurve barAnimationCurve;
 
     [Header("UI")]
     [SerializeField] private Image healthBar;
+    [SerializeField] private Image healthBarMask;
     [SerializeField] private Text textCurrentHealth;
     [SerializeField] private Text textMaxHealth;
+
+    private Animator anim;
 
     public int CurrentHealth
     {
         get => currentHealth;
         set 
         {
-            currentHealth = value;
-            StartCoroutine("UpdateHealthBarCoroutine");
+            if (value != currentHealth)
+            {
+                if (value < 0)
+                    currentHealth = 0;
+                else if (value > MaxHealth)
+                    currentHealth = MaxHealth;
+                else
+                    currentHealth = value;
+
+                anim.SetTrigger("healthChanged");
+                StopAllCoroutines();
+                StartCoroutine("UpdateHealthBarCoroutine");
+            }
         }
     }
 
@@ -37,7 +54,13 @@ public class HealthHUD : MonoBehaviour
         get => maxHealth;
         set 
         {
-            maxHealth = value;
+            if (value < 0)
+                maxHealth = 0;
+            else
+                maxHealth = value;
+
+            if (maxHealth < currentHealth)
+                CurrentHealth = maxHealth;
         }
     }
 
@@ -51,8 +74,15 @@ public class HealthHUD : MonoBehaviour
         CurrentHealth -= health;
     }
 
+    public void SetHealth(string health)
+    {
+        CurrentHealth = int.Parse(health);
+    }
+
     private void Start()
     {
+        anim = GetComponent<Animator>();
+        healthBarMask.fillAmount = 1;
         StartCoroutine("UpdateHealthBarCoroutine");
     }
 
@@ -62,11 +92,18 @@ public class HealthHUD : MonoBehaviour
         textMaxHealth.text = MaxHealth.ToString();
 
         float healthPercentage = (float)currentHealth / maxHealth;
-        healthBar.fillAmount = healthPercentage;
+        
+        float currentAnimationTime = 0;
+        float fillAmount = healthBarMask.fillAmount;
 
-        SetHealthBarColor(healthPercentage);
-
-        yield return null;
+        do
+        {
+            float time = barAnimationCurve.Evaluate(currentAnimationTime / animationTime);
+            healthBarMask.fillAmount = Mathf.Lerp(fillAmount, healthPercentage, time);
+            SetHealthBarColor(healthBarMask.fillAmount);
+            yield return null;
+            currentAnimationTime += Time.deltaTime;
+        } while (healthBarMask.fillAmount != healthPercentage);
     }
 
     private void SetHealthBarColor(float healthPercentage)
