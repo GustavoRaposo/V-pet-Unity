@@ -49,8 +49,8 @@ MonoBehaviour:
   currentHP: 50
   stats: {fileID: 11400000, guid: f23f48dc325bdd641a1b95ab6d0aa58d, type: 2}
   moves:
-  - {fileID: 11400000, guid: c97834a9a73e9cb4a94e9536ef618a89, type: 2}
   - {fileID: 11400000, guid: 356de86ecbe1910418df83a34ad25b25, type: 2}
+  - {fileID: 11400000, guid: c9f0053e4f22d8e4fa8b2bf7aa756094, type: 2}
 --- !u!1 &9204507131819954842
 GameObject:
   m_ObjectHideFlags: 0
