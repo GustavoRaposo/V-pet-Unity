@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199fdd16b3efc194e9a6b3b22869bfc9, type: 3}
   m_Name: Foguinho
   m_EditorClassIdentifier: 
-  moveName: 
-  type: 0
+  moveName: Foguinho
+  cost: 0
+  type: 1
   element: 0
-  power: 0
-  accuracy: 0
+  power: 25
+  accuracy: 1

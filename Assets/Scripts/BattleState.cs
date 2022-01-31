@@ -2,10 +2,10 @@ namespace vpet
 {
     public enum BattleState
     { 
-        START, 
-        PLAYERTURN, 
-        ENEMYTURN, 
-        WON, 
-        LOST 
+        Start, 
+        PreCombat, 
+        Combat,
+        End, 
+         
     }
 }

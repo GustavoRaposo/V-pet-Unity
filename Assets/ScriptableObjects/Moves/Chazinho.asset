@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Chazinho
   m_EditorClassIdentifier: 
   moveName: Chazinho
-  power: 90
+  cost: 0
+  power: 10

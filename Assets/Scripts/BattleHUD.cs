@@ -9,7 +9,7 @@ namespace vpet
     {
         public Text nameText;
         public Text levelText;
-        public Text hpText;
+        public HealthHUD healthBar;
         public Text spText;
         public Image image;
 
@@ -31,18 +31,17 @@ namespace vpet
         int maxHP;
         public void setHUD(Unit unit)
         {
-            // nameText.text = unit.unitName;
-            // levelText.text = "Lvl " + unit.unitLevel;
-            // image = GetComponent<Image>();
-            // image.sprite = unit.unitUIImage;
-            // hpText.text = unit.currentHP + "/" + unit.maxHP;
-            // maxHP = unit.maxHP;
+            nameText.text = unit.stats.unitName;
+            levelText.text = "Lvl " + unit.level;
+            image.sprite = unit.sprite;
+            healthBar.MaxHealth = unit.MaxHP;
+            healthBar.CurrentHealth = unit.currentHP;
             // spText.text = (unit.specialCharge * 100) + "%";
         }
 
-        public void setHP(int hp)
+        public void setHP(Unit unit)
         {
-            hpText.text = hp + "/" + maxHP;
+            healthBar.CurrentHealth = unit.currentHP;
         }
 
         public void setSp(float sp)
